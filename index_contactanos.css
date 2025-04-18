@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1569041032620-2d0ee0b7b673?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    color: #002a69;
+    padding: 50px;
+
+}
+
+#contacto h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 2px 4px 1px rgba(255, 255, 255, 0.856);
+    margin-bottom: 2rem;
+    color: #002a69;
+
+}
+
+.contact_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 5%;
+}
+
+/* FORMULARIO */
+.form_container {
+    flex: 1 1 400px;
+    max-width: 500px;
+    background-color: #d9d9dda9;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.form_campos {
+    margin-bottom: 20px;
+}
+
+.form_campos label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form_campos input,
+.form_campos textarea,
+.form_campos select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.form_campos input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* BOTONES */
+.botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn_reset,
+.btn_submit {
+    flex: 1;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn_reset,
+.btn_submit {
+    background-color: #2167a8;
+    color: white;
+}
+
+.btn_reset:hover,
+.btn_submit:hover {
+    background-color: #1e90ff;
+}
+
+.btn_reset:active,
+.btn_submit:active {
+    background-color: #1c7bbf;
+}
+
+.map_container {
+    flex: 1 1 400px;
+    max-width: 600px;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

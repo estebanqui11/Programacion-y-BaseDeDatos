@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechNova Solutions</title>
+
+    <link rel="stylesheet" href="index_contactanos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Iconos (ejemplo con Font Awesome) -->
+    <script src="https://kit.fontawesome.com/tu-codigo-aqui.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contacto">
+            <h1>Contactanos:</h1>
+
+            <div class="contact_container">
+                <div class="form_container">
+                    <form>
+                        <div class="form_campos">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form_campos">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form_campos">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+
+                        <div class="form_campos">
+                            <label for="comentarios">Comentarios:</label>
+                            <textarea id="comentarios" name="comentarios" rows="4" required></textarea>
+                        </div>
+
+                        <div class="form_campos">
+                            <label for="motivo">Motivo del contacto:</label>
+                            <select id="motivo" name="motivo" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="consulta">Consulta</option>
+                                <option value="sugerencia">Sugerencia</option>
+                                <option value="reclamo">Reclamo</option>
+                            </select>
+                        </div>
+
+                        <div class="form_campos">
+                            <label>¿Deseás recibir novedades?</label>
+                            <label><input type="radio" name="novedades" value="si"> Sí</label>
+                            <label><input type="radio" name="novedades" value="no"> No</label>
+                        </div>
+                        <div class="botones">
+                            <button type="reset" class="btn_reset">Resetear</button>
+                            <button type="submit" class="btn_submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="map_container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65441.16221781213!2d-62.19384529396274!3d-38.70290918094703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95eda1032b284895%3A0x79f9f684d8f397d6!2sAeropuerto%20Bah%C3%ADa%20Blanca%20-%20Comandante%20Espora!5e0!3m2!1ses!2sar!4v1745008660944!5m2!1ses!2sar"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TechNova Solutions</p>
+        <div class="social">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
