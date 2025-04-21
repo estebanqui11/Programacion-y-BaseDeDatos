@@ -1,10 +1,9 @@
-# 🚀 Prácticos Programación III - TP N°1
+# 🚀 Prácticos Programación III
 
-Landing Page 📄 desarrollada como **Trabajo Práctico N°1**.
 
----
+# TP N°1 📝
 
-## 📝 Descripción
+###  Descripción
 
 **Landing Page** para una agencia ficticia llamada **NOVA TRAVEL**. Se trabajó en equipo, aplicando buenas prácticas de desarrollo web, como la **modularización del CSS**, uso de **efectos simples** con transiciones y animaciones, y un manejo organizado de archivos HTML, imágenes y estilos.
 
