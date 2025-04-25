@@ -34,12 +34,23 @@ btn_cancelar.addEventListener("click", (e) => {
 boton.addEventListener("click", function (e) {
     e.preventDefault();
 
-    const nombreValido = validaciones.nombre.test(nombre.value); //verifica que los campos sean verdadero.
-    const emailValido = validaciones.email.test(email.value);
-    const edadValida = validaciones.edad.test(edad.value);
-    const telefonoValido = validaciones.telefono.test(telefono.value);
+    const nombreValue = nombre.value;
+    const emailValue = email.value;
+    const edadValue = edad.value;
+    const telefonoValue = telefono.value;
 
-    toggleError(error_nombre, nombreValido); //LLama a la funcion toggle para mostrar u ocultar el mesaje.
+    const nombreValido = validaciones.nombre.test(nombreValue); //verifica que los campos sean verdadero.
+    const emailValido = validaciones.email.test(emailValue);
+    const edadValida = validaciones.edad.test(edadValue);
+    const telefonoValido = validaciones.telefono.test(telefonoValue);
+
+    // muestra en consola los valores del formulario
+    console.log("Nombre: ", nombreValue);
+    console.log("Email: ", emailValue);
+    console.log("Edad: ", edadValue);
+    console.log("Teléfono: ", telefonoValue);
+
+    toggleError(error_nombre, nombreValido);
     toggleError(error_email, emailValido);
     toggleError(error_edad, edadValida);
     toggleError(error_telefono, telefonoValido);
@@ -47,10 +58,14 @@ boton.addEventListener("click", function (e) {
     if (nombreValido && emailValido && edadValida && telefonoValido) {
         completo.style.display = "block"
         formulario.reset();
+        setTimeout(() => {
+            completo.style.display = "none"
+        }, 3000); //oculta el mensaje a los 3seg
     }
     else {
         completo.style.display = "none" //oculta el mesaje por mas que el usuario envie y tenga un error
     }
+
 
 });
 
