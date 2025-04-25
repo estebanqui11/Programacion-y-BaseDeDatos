@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ejer5.css">
+    <title>EJERCICIO 5</title>
+</head>
+
+<body>
+
+    <form action="" id="formulario">
+        <div>
+            <label for="nombre">Nombre: </label>
+            <input type="text" id="nombre" name="nombre" placeholder="Juan Perez" required>
+            <p class="error_campo" id="error_nombre">El nombre debe tener entre 3 y 20 letras.</p>
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="pepito@email.com" required>
+            <p class="error_campo" id="error_email">Verifique los caracteres ingresados.</p>
+        </div>
+
+        <div>
+            <label for="edad">Edad: </label>
+            <input type="number" id="edad" name="edad" placeholder="20" required>
+            <p class="error_campo" id="error_edad">Debe ser mayor de 18 años.</p>
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono: </label>
+            <input type="tel" id="telefono" name="telefono" placeholder="09928883721" required>
+            <p class="error_campo" id="error_telefono">Número incorrecto.</p>
+        </div>
+
+        <div class="centrar">
+            <button type="submit" id="boton" class="btn_submit">Enviar</button>
+            <button type="submit" id="boton_cancelar" class="btn_cancelar">Cancelar</button>
+        </div>
+        <div>
+            <p class="campos_completados" id="completado">Formulario enviado correctamente</p>
+        </div>
+    </form>
+
+
+
+    <script src="/js/ejer5.js"></script>
+</body>
+
+
+
+</html>

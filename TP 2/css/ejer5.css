@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 40px;
+    margin: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(170, 153, 153);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(69, 73, 95);
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(45, 65, 179);
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.campos_completados {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+    color: green;
+}
+
+.error_campo {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: start;
+    display: none;
+    color: red;
+}
+
+.centrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    flex-direction: row;
+    gap: 20px
+}
+
+.btn_submit {
+    padding: 10px 20px;
+    background-color: rgb(45, 65, 179);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s ease;
+}
+
+.btn_cancelar {
+    padding: 10px 20px;
+    background-color: rgb(45, 65, 179);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s ease;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: rgb(19, 179, 54);
+}
+
+.btn_cancelar:hover {
+    background-color: rgb(179, 51, 19);
+}
