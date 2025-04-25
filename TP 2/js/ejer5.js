@@ -23,9 +23,15 @@ const validaciones = {
     telefono: /^[0-9]{7,}$/
 };
 
-function toggleError(campoError, esValido) { //evita repetir el if para mostrar o no el elemento <p>
-    campoError.style.display = esValido ? "none" : "block";
+function mostrarError(campoError, esValido) {
+    if (esValido == true) {
+        campoError.style.display = "none";
+    }
+    if (esValido == false) {
+        campoError.style.display = "block";
+    }
 }
+
 
 btn_cancelar.addEventListener("click", (e) => {
     formulario.reset();
@@ -50,10 +56,10 @@ boton.addEventListener("click", function (e) {
     console.log("Edad: ", edadValue);
     console.log("Teléfono: ", telefonoValue);
 
-    toggleError(error_nombre, nombreValido);
-    toggleError(error_email, emailValido);
-    toggleError(error_edad, edadValida);
-    toggleError(error_telefono, telefonoValido);
+    mostrarError(error_nombre, nombreValido);
+    mostrarError(error_email, emailValido);
+    mostrarError(error_edad, edadValida);
+    mostrarError(error_telefono, telefonoValido);
 
     if (nombreValido && emailValido && edadValida && telefonoValido) {
         completo.style.display = "block"
