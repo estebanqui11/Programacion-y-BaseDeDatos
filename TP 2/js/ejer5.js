@@ -47,7 +47,6 @@ boton.addEventListener("click", function (e) {
     if (nombreValido && emailValido && edadValida && telefonoValido) {
         completo.style.display = "block"
         formulario.reset();
-        boton.blur();
     }
     else {
         completo.style.display = "none" //oculta el mesaje por mas que el usuario envie y tenga un error

@@ -3,6 +3,15 @@
     padding: 0;
 }
 
+h2 {
+    text-align: center;
+    color: rgb(44, 48, 68);
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
 body {
     padding: 40px;
     margin: 40px;
