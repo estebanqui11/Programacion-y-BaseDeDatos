@@ -1,0 +1,20 @@
+use('tiendaOnline');
+
+db.productos.aggregate([
+    {
+        $group: {
+            _id: "$categoria",
+            precioPromedio: { $avg: "$precio" }
+        }
+    }
+]);
+
+db.ventas.aggregate([
+    {
+        $group: {
+            _id: "$cliente.pais",
+            cantidadDeTransacciones: { $sum: 1 },
+            montoTotal: { $sum: "$total" }
+        }
+    }
+]);
