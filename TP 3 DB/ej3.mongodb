@@ -1,0 +1,19 @@
+db.productos.aggregate(
+    {$project: {
+        nombre: 1,
+        precio: 1,
+        precioConImpuesto:{
+            $multiply:["$precio", 1.21] 
+        },
+        _id:0
+    }}
+);
+db.ventas.aggregate(
+    {$project: {
+        "cliente.nombre": 1,
+        total: 1,
+        descuento:{
+            $multiply:["$total", 0.1] 
+        },
+    }}
+);

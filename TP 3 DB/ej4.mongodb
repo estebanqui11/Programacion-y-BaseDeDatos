@@ -1,0 +1,23 @@
+//Comprender y aplicar $unwind para trabajar con arrays.
+
+//Tarea:
+//Deconstruir el array de valoraciones de productos para obtener una lista plana donde cada documento contenga una valoración individual.
+//Luego, agrupar por puntuación y contar cuántas valoraciones hay de cada puntuación.
+//Etapas del Pipeline:
+//$unwind, $group, $sort
+db.productos.aggregate([
+    {$unwind: "$valoraciones"},
+    {$group:{
+        _id: "$valoraciones.puntuacion",
+        cantidad: {$sum: 1}
+    }},
+    {$sort: {_id: -1}},
+    {
+        $project: {
+          puntuacion: "$_id",
+          cantidad: 1,
+          _id: 0 
+        }
+      }
+]
+);
