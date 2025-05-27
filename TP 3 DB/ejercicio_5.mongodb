@@ -1,0 +1,28 @@
+// Ejercicio 5 - Enriquecer ventas con info del producto y total vendido por categoria
+
+db.ventas.aggregate([
+  {
+    //unir ventas con productos
+    $lookup: {
+      from: "productos",
+      localField: "producto_id",
+      foreignField: "_id",
+      as: "producto_info"
+    }
+  },
+  {
+    // sacar array producto_info para trabajar con objeto
+    $unwind: "$producto_info"
+  },
+  {
+    // agrupo por categoria del producto y sumo total vendido
+    $group: {
+      _id: "$producto_info.categoria",
+      total_vendido: { $sum: "$total" }
+    }
+  },
+  {
+    // para ordenar descendente por total vendido
+    $sort: { total_vendido: -1 }
+  }
+]);

@@ -1,0 +1,55 @@
+// Ejercicio 8 - Informe de ventas con top 3 productos más vendidos
+
+db.ventas.aggregate([
+  {
+    // para agrupar por producto_id sumar cantidad y total de venta
+    $group: {
+      _id: "$producto_id",
+      total_unidades_vendidas: { $sum: "$cantidad" },
+      monto_total_generado: { $sum: "$total" }
+    }
+  },
+  {
+    // para ordenarlo descendente por unidades vendidas
+    $sort: { total_unidades_vendidas: -1 }
+  },
+  {
+    // maximo 3 productos
+    $limit: 3
+  },
+  {
+    // sirve para unir con coleccion productos para traer nombre categoria y valoraciones
+    $lookup: {
+      from: "productos",
+      localField: "_id",
+      foreignField: "_id",
+      as: "producto_info"
+    }
+  },
+  {
+    // elimino array producto_info para acceder directo
+    $unwind: "$producto_info"
+  },
+  {
+    // puntuacion promedio de valoraciones
+    $addFields: {
+      puntuacion_promedio: {
+        $avg: "$producto_info.valoraciones.puntuacion"
+      },
+      nombre: "$producto_info.nombre",
+      categoria: "$producto_info.categoria"
+    }
+  },
+  {
+    // proyectar los campos deseados ocultando _id original
+    $project: {
+      _id: 0,
+      producto_id: "$_id",
+      nombre: 1,
+      categoria: 1,
+      total_unidades_vendidas: 1,
+      monto_total_generado: 1,
+      puntuacion_promedio: 1
+    }
+  }
+]);
