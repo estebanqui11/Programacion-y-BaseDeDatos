@@ -2,19 +2,19 @@
 
 ## Información necesaria 
 
-**Endpoints Frontend:**
+**📍Endpoints Frontend:**
 
 `/turnos`
 
 `/turnos/nuevo`
 
-**Endpoints Backend:**
+**📍Endpoints Backend:**
 
 `/api/v1/pacientes/"número de paciente"`
 
 ## 🚀 Instalacion:
 
-1.
+1. Clonar el repositorio.
 
  ```bash
     git clone "URL DEL REPOSITORIO"
