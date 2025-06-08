@@ -1,0 +1,56 @@
+<%- include('../layouts/main', {title: 'Listado de Turnos'}) %>
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Listado de Turnos</h1>
+        
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Paciente</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (turnos && turnos.length > 0) { %>
+                        <% turnos.forEach(function(turno) { %>
+                            <tr>
+                                <td><%= turno.id %></td>
+                                <td><%= turno.idPaciente %></td>
+                                <td><%= new Date(turno.fecha).toLocaleString() %></td>
+                                <td>
+                                    <span class="badge bg-<%= turno.estado === 'PENDIENTE' ? 'warning' : 
+                                                            turno.estado === 'COMPLETADO' ? 'success' : 'danger' %>">
+                                        <%= turno.estado %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <% if (turno.estado === 'PENDIENTE') { %>
+                                        <form action="/turnos/<%= turno.id %>/cancelar" method="POST" style="display: inline;">
+                                            <button type="submit" class="btn btn-danger btn-sm" 
+                                                    onclick="return confirm('¿Está seguro de cancelar este turno?')">
+                                                Cancelar
+                                            </button>
+                                        </form>
+                                    <% } %>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="5" class="text-center">No hay turnos registrados</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="mt-4">
+            <a href="/turnos/nuevo" class="btn btn-primary">Nuevo Turno</a>
+        </div>
+    </div>
+</div> 
