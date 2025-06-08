@@ -28,9 +28,20 @@
  ```
 4. Iniciar el proyecto
 
+
  ```bash
     npm run dev
  ```
+
+## 🖼️ Capturas de pantalla
+
+![Captura de pantalla 2025-06-08 145635](https://github.com/user-attachments/assets/33f8c43a-3be8-4f68-9937-188a420333bc)
+
+![Captura de pantalla 2025-06-08 145624](https://github.com/user-attachments/assets/977e3c4a-dd83-48f8-9767-e861e237d092)
+
+
+![Captura de pantalla 2025-06-08 145353](https://github.com/user-attachments/assets/4e987262-546f-416b-a6ff-defff1a21582)
+
 
 ## 👥 Integrantes:
 
