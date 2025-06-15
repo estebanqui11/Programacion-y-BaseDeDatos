@@ -1,0 +1,43 @@
+<%- include('../layouts/main', {title: 'Nuevo Turno'}) %>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1 class="mb-4">Nuevo Turno</h1>
+        
+        <form action="/turnos" method="POST">
+            <div class="mb-3">
+                <label for="idPaciente" class="form-label">ID del Paciente</label>
+                <input type="number" 
+                       class="form-control" 
+                       id="idPaciente" 
+                       name="idPaciente" 
+                       required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha y Hora</label>
+                <input type="datetime-local" 
+                       class="form-control" 
+                       id="fecha" 
+                       name="fecha" 
+                       required>
+                <div class="form-text">
+                    Seleccione una fecha y hora posterior a la actual
+                </div>
+            </div>
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Registrar Turno</button>
+                <a href="/turnos" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Establecer la fecha mínima como la fecha actual
+    const fechaInput = document.getElementById('fecha');
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    fechaInput.min = now.toISOString().slice(0, 16);
+</script> 
