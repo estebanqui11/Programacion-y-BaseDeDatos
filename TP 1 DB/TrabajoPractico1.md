@@ -89,3 +89,55 @@ Por ultimo muestra error a la hora de insertar un producto:
 <td><img src="img/errorinsertarproductos.png" alt="Vista ventas" width="800" height="300"/></td>
 
 ***
+
+8. Primero creamos las tablas clientes y auditoria_clientes:
+
+<td><img src="img/tabla_clientes.png" alt="Vista ventas" width="600" height="300"/></td>
+
+Luego creamos los triggers sobre la tabla clientes:
+
+<td><img src="img/triggers.png" alt="Vista ventas" width="800" height="300"/></td>
+
+Vemos como los triggers funcionan al realizar una accion en el CRUD:
+
+<td><img src="img/accionescrud.png" alt="Vista ventas" width="800" height="300"/></td>
+
+***
+
+### 9: Backup y Restore (MySQL)
+
+**Backup completo de la base de datos**
+
+Abre la terminal o consola y ejecuta:
+
+```bash
+mysqldump -u `tu_usuario` -p `tu_basededatos` > `backup.sql`
+```
+
+Reemplaza `tu_usuario` por tu usuario de MySQL y `tu_basededatos` por el nombre de tu base de datos.
+
+---
+
+**Simular p├®rdida de datos**
+
+Por ejemplo, borra la tabla `clientes` con el siguiente comando:
+
+```sql
+DROP TABLE `clientes`;
+```
+
+---
+
+**Restaurar el backup**
+
+En la terminal o consola, ejecuta:
+
+```bash
+mysql -u `tu_usuario` -p `tu_basededatos` < `backup.sql`
+```
+
+Esto restaurar├í toda la base de datos al estado en que se hizo el backup.
+
+---
+
+As├¡ se puede realizar un procedimiento b├ísico de backup y restore en MySQL.
