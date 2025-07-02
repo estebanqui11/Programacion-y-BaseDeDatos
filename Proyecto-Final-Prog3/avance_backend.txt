@@ -1,0 +1,17 @@
+Avance Backend - Colección de Videojuegos
+=========================================
+
+1. Modelo de Videojuego:
+   - Incluye los campos: título, género, plataforma, estado (pendiente, jugando, completado), calificación (0-10) y tiempo jugado (en horas).
+
+2. Endpoints implementados:
+   - POST /videojuegos: Agregar un videojuego a la colección.
+   - GET /videojuegos: Listar todos los videojuegos.
+   - GET /videojuegos?plataforma=...&genero=...: Filtrar videojuegos por plataforma y/o género usando parámetros en la URL.
+   - GET /videojuegos/:id: Obtener un videojuego por su ID.
+   - PUT /videojuegos/:id: Actualizar datos de un videojuego (estado, calificación, tiempo jugado, etc).
+   - DELETE /videojuegos/:id: Eliminar un videojuego de la colección.
+
+3. Notas:
+   - El backend está listo para ser probado 
+   - Los filtros por plataforma y género podes hcaer busquedas más específicas.

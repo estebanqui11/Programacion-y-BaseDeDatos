@@ -5,6 +5,7 @@ const { getAll, create, update, remove, getById } = require('../controllers/vide
 
 
 // Rutas
+// GET /videojuegos?plataforma=PC&genero=RPG para filtrar
 router.get('/', getAll);           // GET /videojuegos
 router.post('/', create);          // POST /videojuegos
 router.put('/:id', update);        // PUT /videojuegos/1

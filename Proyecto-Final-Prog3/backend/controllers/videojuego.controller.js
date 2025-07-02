@@ -11,8 +11,16 @@ const create = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  const juegos = await Videojuego.findAll();
-  res.json(juegos);
+  try {
+    const { plataforma, genero } = req.query;
+    let where = {};
+    if (plataforma) where.plataforma = plataforma;
+    if (genero) where.genero = genero;
+    const juegos = await Videojuego.findAll({ where });
+    res.json(juegos);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener videojuegos' });
+  }
 };
 
 const update = async (req, res) => {
