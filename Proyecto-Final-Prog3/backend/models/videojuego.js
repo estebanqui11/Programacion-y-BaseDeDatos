@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Videojuego = sequelize.define('Videojuego', {
+
     titulo: {
       type: DataTypes.STRING,
       allowNull: false
@@ -26,7 +27,12 @@ module.exports = (sequelize, DataTypes) => {
     tiempo_jugado: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    }
+    },
+    
+    imagen: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
   }, {
     tableName: 'videojuegos',
     timestamps: true

@@ -17,3 +17,166 @@
 .App-header a {
   color: #61dafb;
 }
+
+/* General */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f7;
+  color: #333;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.App {
+  text-align: center;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filtros label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filtros select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Tarjetas de juego */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.tarjeta {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 230px;
+  transition: transform 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: scale(1.03);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
+/* Botones */
+button,
+.btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.btn-editar {
+  background-color: #3498db;
+  color: white;
+}
+
+.boton-agregar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button:hover,
+.btn:hover,
+.boton-agregar:hover {
+  filter: brightness(1.1);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Formulario agregar */
+.formulario {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-field {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
