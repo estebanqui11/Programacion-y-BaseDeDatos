@@ -9,12 +9,15 @@ prestamos_col = db["prestamos"]
 def agregar_libro(libro):
     libro.setdefault("copias", 1)
     libro["disponibles"] = libro["copias"]
-    # Normalizar claves
-    libro["titulo"] = libro.pop("titulo", "").lower()
-    libro["autor"] = libro.pop("autor", "").lower()
-    libro["isbn"] = libro.pop("isbn", "").lower()
-    libro["genero"] = libro.pop("genero", "").lower()
+    libro["titulo"] = libro.pop("titulo", "").strip().lower()
+    libro["autor"] = libro.pop("autor", "").strip().lower()
+    libro["isbn"] = libro.pop("isbn", "").strip().lower()
+    libro["genero"] = libro.pop("genero", "").strip().lower()
     libro["aniopublicacion"] = libro.pop("aniopublicacion", libro.pop("anioPublicacion", 0))
+    # Validar si existe el ISBN
+    if libros_col.find_one({"isbn": libro["isbn"]}):
+        return "error: ya existe un libro con ese ISBN."
+    
     return libros_col.insert_one(libro).inserted_id
 
 def prestar_libro(isbn, usuario):
@@ -53,6 +56,7 @@ def buscar_libros(criterio):
 
 def reporte_populares():
     pipeline = [
+        {"$match": {"devuelto": False}},
         {"$group": {"_id": "$libroid", "total": {"$sum": 1}}},
         {"$sort": {"total": -1}},
         {"$limit": 5},
@@ -63,6 +67,26 @@ def reporte_populares():
             "as": "libro"
         }},
         {"$unwind": "$libro"},
-        {"$project": {"titulo": "$libro.titulo", "autor": "$libro.autor", "total": 1}}
+        {"$project": {
+            "titulo": "$libro.titulo",
+            "autor": "$libro.autor",
+            "total": 1
+        }}
     ]
-    return list(prestamos_col.aggregate(pipeline)) 
+    return list(db["prestamos"].aggregate(pipeline))
+
+def obtener_libros():
+    return list(libros_col.find())
+
+
+def buscar_por_titulo(titulo):
+    titulo = titulo.strip().lower()
+    return list(libros_col.find({"titulo": titulo}))
+
+def buscar_por_autor(autor):
+    autor = autor.strip().lower()
+    return list(libros_col.find({"autor": autor}))
+
+def buscar_por_genero(genero):
+    genero = genero.strip().lower()
+    return list(libros_col.find({"genero": genero}))

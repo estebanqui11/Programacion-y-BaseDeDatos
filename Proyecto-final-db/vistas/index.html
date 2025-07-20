@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Digital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Biblioteca Digital</h1>
+        <div class="barra-superior">
+            <div class="boton">
+                <a href="/agregar" class="btn">Agregar Libro</a>
+                <a href="/prestar" class="btn">Prestar Libro</a>
+                <a href="/devolver" class="btn">Devolver Libro</a>
+                <a href="/prestamos-activos" class="btn">Libros Prestados</a>
+            </div>
+            <form method="GET" action="/" class="buscar">
+                <input type="text" name="filtro" placeholder="Buscar por título..."
+                    value="{{ request.args.get('filtro', '') }}">
+
+                <input type="text" name="autor" placeholder="Autor" value="{{ request.args.get('autor', '') }}">
+
+                <select name="genero">
+                    <option value="">Todos los géneros</option>
+                    <option value="ficcion">Ficción</option>
+                    <option value="novela">Novela</option>
+                    <option value="historia">Historia</option>
+                    <option value="poesia">Poesía</option>
+                    <option value="ciencia">Ciencia</option>
+                    <option value="fantasia">Fantasía</option>
+                    <option value="otros">Otros</option>
+                </select>
+
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <h2>Libros Disponibles</h2>
+        {% if libros %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>ISBN</th>
+                    <th>Genero</th>
+                    <th>Anio</th>
+                    <th>Copias</th>
+                    <th>Disponibles</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in libros %}
+                <tr>
+                    <td>{{ libro.titulo | capitalize }}</td>
+                    <td>{{ libro.autor }}</td>
+                    <td>{{ libro.isbn }}</td>
+                    <td>{{ libro.genero }}</td>
+                    <td>{{ libro.aniopublicacion }}</td>
+                    <td>{{ libro.copias }}</td>
+                    <td>{{ libro.disponibles }}</td>
+                    <td>
+                        <form method="POST" action="/eliminar/{{ libro._id }}"
+                            onsubmit="return confirm('¿Estás seguro que desea eliminar el libro?');">
+                            <button class="eliminar-btn">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Todavia no hay libros registrados.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
