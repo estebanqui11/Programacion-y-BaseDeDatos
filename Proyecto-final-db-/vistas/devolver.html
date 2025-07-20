@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Devolver Libro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Devolver Libro</h2>
+        <form action="/devolver-libro" method="post">
+            <input type="text" name="isbn" placeholder="ISBN del libro" required>
+            <input type="text" name="usuario" placeholder="Nombre usuario" required>
+            <input type="number" name="cantidad_devuelta" min="1" value="1" required>
+            <button type="submit" class="btn">Devolver</button>
+        </form>
+        <a href="/" class="btn">⬅ Volver</a>
+    </div>
+</body>
+
+</html>

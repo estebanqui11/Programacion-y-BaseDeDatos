@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prestar Libro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Registrar Préstamo</h2>
+        <form action="/prestar" method="post">
+            <label>ISBN del libro:</label>
+                <input type="text" name="isbn" required>
+
+                <label>Nombre del usuario:</label>
+                <input type="text" name="usuario" required>
+
+                <label>Cantidad de copias:</label>
+                <input type="number" name="cantidad" min="1" value="1" required>
+                <button type="submit" class="btn">Prestar</button>
+        </form>
+        <a href="/" class="btn">⬅ Volver</a>
+    </div>
+</body>
+
+</html>

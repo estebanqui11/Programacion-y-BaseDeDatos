@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Libro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Agregar Nuevo Libro</h2>
+        <form action="/agregar" method="post">
+            <input type="text" name="titulo" placeholder="Titulo" required>
+            <input type="text" name="autor" placeholder="Autor" required>
+            <input type="number" name="isbn" placeholder="ISBN" required>
+            <select name="genero" required>
+                <option value="">Seleccionar genero</option>
+                <option value="ficcion">Ficcion</option>
+                <option value="novela">Novela</option>
+                <option value="historia">Historia</option>
+                <option value="poesia">Poesia</option>
+                <option value="ciencia">Ciencia</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="otros">Otros</option>
+            </select>
+            <input type="date" name="aniopublicacion" placeholder="Anio de publicacion" required>
+            <input type="number" name="copias" placeholder="Cantidad de copias" required>
+            <button type="submit" class="btn">Guardar</button>
+        </form>
+        <a href="/" class="btn">⬅ Volver</a>
+    </div>
+</body>
+
+</html>
